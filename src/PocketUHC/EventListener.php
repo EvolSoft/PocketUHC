@@ -10,16 +10,25 @@
 namespace PocketUHC;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 class EventListener extends PluginBase implements Listener{
 
     public function __construct(Main $plugin){
         $this->plugin = $plugin;
     }
     
-    public function onDeath(PlayerDeathEvent $event){
+    public function onJoin(PlayerJoinEvent $event){
+        $cfg = $this->plugin->cfg;
         
+        if($cfg["Join"]["custom-join-message"]){
+            if($cfg["Join"]["message"] == "-"){
+                $event->setJoinMessage(NULL);
+                return true;
+            }      
+            $event->setJoinMessage($cfg["Join"]["message"]);
+            return true;
+        }
     }
-
+    
 }
