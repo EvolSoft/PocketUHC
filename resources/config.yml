@@ -15,6 +15,11 @@ Food:
     notch-apples: false
     
 Death:
+    # Add a custom death message
+    custom-death-message: false
+    # Tags you can use: {VICTIM} {KILLER} {LEVEL}. 
+    # Set it to "-" for default (Sorry, cant disable! Its UHC!);
+    message: "-"
     # Drop player heads on death?
     drop-heads: true
     # Temporarily ban people on death?
@@ -24,13 +29,13 @@ Death:
     
 Join:
     # Add a custom join message
-    custom-join-message: true
+    custom-join-message: false
     # Set it to "-" to hide completely
     message: "-"
     
 Quit:
     # Add a custom quit message
-    custom-quit-message: true
+    custom-quit-message: false
     # Set it to "-" to hide completely
     message: "-"
     

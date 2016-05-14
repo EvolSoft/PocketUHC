@@ -53,7 +53,7 @@ class Main extends PluginBase implements Listener{
 	        $this->getLogger()->critical("This plugin must be run using the Genisys server software.");
 	        $this->getServer()->getPluginManager()->disablePlugin($this);
 	    }
-	    
+	       
 	    $this->saveDefaultConfig();
 	    $this->cfg = $this->getConfig()->getAll();
 	    $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);

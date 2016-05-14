@@ -12,6 +12,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\event\player\PlayerDeathEvent;
 class EventListener extends PluginBase implements Listener{
 
     public function __construct(Main $plugin){
@@ -28,6 +29,39 @@ class EventListener extends PluginBase implements Listener{
             }      
             $event->setJoinMessage($cfg["Join"]["message"]);
             return true;
+        }
+    }
+    
+    public function onQuit(PlayerQuitEvent $event){
+        $cfg = $this->plugin->cfg;
+       
+        if($cfg["Quit"]["custom-quit-message"]){
+            if($cfg["Quit"]["message"] == "-"){
+                $event->setQuitMessage(NULL);
+                return true;
+            }
+            $event->setJoinMessage($cfg["Quit"]["message"]);
+            return true;
+        }
+    }
+    
+    public function onDeath(PlayerDeathEvent $event){
+        $cfg = $this->plugin->cfg;
+        $entity = $event->getEntity();
+        $level = $entity->getLevel();
+        
+        if($cfg["Death"]["custom-death-message"]){
+            if($cfg["Death"]["message"] == "-"){
+                return true; //Don't modify it.
+            }
+            $event->setDeathMessage($cfg["Death"]["message"]);
+            return true;
+        }
+        
+        if($entity instanceof \pocketmine\Player){
+            if($cfg["Death"]["drop-heads"]){
+                //TODO
+            }
         }
     }
     
