@@ -1,0 +1,9 @@
+name: PocketUHC
+main: PocketUHC\Main
+version: "1.0"
+api: [1.8.0]
+load: STARTUP
+author: EvolSoft
+description: Full-featured UHC plugin for PocketMine-MP
+website: https://www.evolsoft.tk
+
