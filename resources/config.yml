@@ -1,0 +1,40 @@
+---
+Plugin:
+    enabled: true
+    show-prefix: true
+  
+# Currently can only be "sqlite", will change later
+Database: sqlite
+    
+Food:
+    # Enable Golden Heads? Regenerates 6 hearts
+    golden-heads: true 
+    # Enable Golden Apples?
+    golden-apples: true
+    # Enable Enchanted Golden Apples?
+    notch-apples: false
+    
+Death:
+    # Drop player heads on death?
+    drop-heads: true
+    # Temporarily ban people on death?
+    death-ban: true
+    # Requires death ban to be false (TODO)
+    spectator-mode: false   
+    
+Join:
+    # Add a custom join message
+    custom-join-message: true
+    # Set it to "-" to hide completely
+    message: "-"
+    
+Quit:
+    # Add a custom quit message
+    custom-quit-message: true
+    # Set it to "-" to hide completely
+    message: "-"
+    
+Gamerules:
+    # Set to false to make it always day
+    doDaylightCycle: true
+...
