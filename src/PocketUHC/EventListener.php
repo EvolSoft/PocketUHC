@@ -13,6 +13,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\item\Item;
 class EventListener extends PluginBase implements Listener{
 
     public function __construct(Main $plugin){
@@ -60,7 +61,9 @@ class EventListener extends PluginBase implements Listener{
         
         if($entity instanceof \pocketmine\Player){
             if($cfg["Death"]["drop-heads"]){
-                //TODO
+                $item = Item::get(397, 3, 1);
+                $item->setCustomName($entity->getName() . "'s head");
+                $level->dropItem($entity->getPosition(), $item);
             }
         }
     }
