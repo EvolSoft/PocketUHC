@@ -14,6 +14,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\item\Item;
+use pocketmine\utils\TextFormat;
 class EventListener extends PluginBase implements Listener{
 
     public function __construct(Main $plugin){
